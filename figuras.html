@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Calculador de areas de figuras</h1>
+    select a figure:
+    <input type="text" id="figura" placeholder="1.- cuadrado, 2.- rectangulo, 3.- circulo, 4.- triangulo">
+    <button id="calcular">Calcular</button>
+    <div id="resultado"></div> 
+</body>
+<script>
+    document.getElementById('calcular').addEventListener('click', function() {
+        const figura = document.getElementById('figura').value.toLowerCase();
+        let resultado = '';
+
+        switch (figura) {
+            case 'cuadrado':
+                const lado = parseFloat(prompt('Ingrese el lado del cuadrado:'));
+                resultado = `El área del cuadrado es: ${lado * lado}`;
+                break;
+            case 'rectangulo':
+                const base = parseFloat(prompt('Ingrese la base del rectángulo:'));
+                const altura = parseFloat(prompt('Ingrese la altura del rectángulo:'));
+                resultado = `El área del rectángulo es: ${base * altura}`;
+                break;
+            case 'triangulo':
+                const baseTriangulo = parseFloat(prompt('Ingrese la base del triángulo:'));
+                const alturaTriangulo = parseFloat(prompt('Ingrese la altura del triángulo:'));
+                resultado = `El área del triángulo es: ${(baseTriangulo * alturaTriangulo) / 2}`;
+                break;
+            case 'circulo':
+                const radio = parseFloat(prompt('Ingrese el radio del círculo:'));
+                resultado = `El área del círculo es: ${Math.PI * radio * radio}`;
+                break;
+            default:
+                resultado = 'Figura no reconocida. Por favor, ingrese cuadrado, rectangulo, circulo o triangulo.';
+        }
+
+        document.getElementById('resultado').innerText = resultado;
+    });
+
+     
+</script>
+</html>
